@@ -84,11 +84,16 @@ async function updateWeather(location) {
     const response = await fetch(weatherUrl);
     if (!response.ok) throw new Error("Weather request failed");
     const data = await response.json();
-    const temp = data.current?.temperature_2m;
+    const tempC = data.current?.temperature_2m;
     const code = data.current?.weather_code;
-    const unit = data.current_units?.temperature_2m || "°C";
     const weather = weatherTextFromCode(code);
-    homeWeatherLabel.textContent = `Weather: ${weather}, ${temp}${unit}`;
+    if (typeof tempC === "number") {
+      const tempF = (tempC * 9) / 5 + 32;
+      homeWeatherLabel.textContent =
+        `Weather: ${weather}, ${tempC.toFixed(1)}°C (${tempF.toFixed(1)}°F)`;
+    } else {
+      homeWeatherLabel.textContent = `Weather: ${weather}`;
+    }
   } catch (_err) {
     homeWeatherLabel.textContent = "Weather: Unable to load right now";
   }
