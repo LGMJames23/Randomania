@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Randomania</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <h1 id="title">RANDOMANIA</h1>
+        <p>Converted from Code.org App Lab to HTML/CSS/JS</p>
+      </header>
+
+      <nav class="menu-grid">
+        <button data-screen="trivia">Random Trivia</button>
+        <button data-screen="sports">Random Sports</button>
+        <button data-screen="screen">Random Screen</button>
+        <button data-screen="quote">Random Quote</button>
+        <button data-screen="number">Random Number</button>
+        <button data-screen="dice">Dice Roll</button>
+        <button data-screen="username">Username</button>
+        <button data-screen="coinflip">Coin Flip</button>
+        <button id="randomScreenBtn">Random</button>
+      </nav>
+
+      <section class="screen active" id="homeScreen">
+        <h2>Home</h2>
+        <p>If a section looks empty, press the action button in that section.</p>
+      </section>
+
+      <section class="screen" id="triviaScreen">
+        <h2>Random Trivia</h2>
+        <img id="triviaImage" alt="Trivia hint" />
+        <p id="triviaCategory"></p>
+        <div class="btn-row">
+          <button class="answer-btn"></button>
+          <button class="answer-btn"></button>
+          <button class="answer-btn"></button>
+          <button class="answer-btn"></button>
+        </div>
+        <p id="triviaResult"></p>
+        <button id="nextTriviaBtn">New Question</button>
+      </section>
+
+      <section class="screen" id="sportsScreen">
+        <h2>Random Sport</h2>
+        <img id="sportImage" alt="Sport image" />
+        <p id="sportName"></p>
+        <p id="sportFact"></p>
+        <p><a id="sportVideoLink" href="#" target="_blank" rel="noopener noreferrer">Watch highlights</a></p>
+        <button id="sportBtn">Generate</button>
+      </section>
+
+      <section class="screen" id="screenScreen">
+        <h2>Random Screen</h2>
+        <label class="check">
+          <input type="checkbox" id="iconsToggle" checked />
+          Show floating icons
+        </label>
+        <button id="genIconsBtn">Generate</button>
+        <div id="iconCanvas"></div>
+      </section>
+
+      <section class="screen" id="quoteScreen">
+        <h2>Random Quote</h2>
+        <div class="controls">
+          <select id="quoteType">
+            <option value="Motivational">Motivational</option>
+            <option value="Insult">Insult</option>
+            <option value="Profound">Profound</option>
+          </select>
+          <input id="nameInput" placeholder="Enter Name" />
+          <button id="quoteBtn">Generate Quote</button>
+        </div>
+        <p id="quoteOutput"></p>
+      </section>
+
+      <section class="screen" id="numberScreen">
+        <h2>Random Number</h2>
+        <div class="controls">
+          <input id="lowInput" type="number" value="1" />
+          <input id="highInput" type="number" value="100" />
+          <button id="numberBtn">Generate</button>
+        </div>
+        <p id="numberOutput"></p>
+      </section>
+
+      <section class="screen" id="diceScreen">
+        <h2>Dice Roll</h2>
+        <div class="controls">
+          <input id="diceCountInput" type="number" min="1" max="10" value="1" />
+          <button id="diceBtn">Roll Dice</button>
+        </div>
+        <p>Max dice shown cleanly: 10</p>
+        <p id="diceOutput"></p>
+        <div id="diceVisuals" class="dice-grid"></div>
+      </section>
+
+      <section class="screen" id="usernameScreen">
+        <h2>Random Username</h2>
+        <div class="controls">
+          <input id="usernameSeedInput" placeholder="Optional name seed" />
+          <button id="usernameBtn">Generate Username</button>
+        </div>
+        <p id="usernameOutput"></p>
+      </section>
+
+      <section class="screen" id="coinflipScreen">
+        <h2>Coin Flip</h2>
+        <div class="controls">
+          <input id="coinflipCountInput" type="number" min="1" max="10" value="1" />
+          <button id="coinflipBtn">Flip Coin</button>
+        </div>
+        <p>Max coin flips shown cleanly: 10</p>
+        <p id="coinflipOutput"></p>
+        <div id="coinflipVisuals" class="coin-grid"></div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
