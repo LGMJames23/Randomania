@@ -14,6 +14,9 @@ const cityOptions = [
 
 let activeLocation = cityOptions[0];
 let clockTimer = null;
+const ACCOUNT_STORAGE_KEY = "randomaniaAccounts";
+const ACTIVE_ACCOUNT_STORAGE_KEY = "randomaniaActiveAccount";
+let activeAccount = "Guest";
 
 const locationSelect = document.getElementById("locationSelect");
 const randomLocationBtn = document.getElementById("randomLocationBtn");
@@ -22,6 +25,11 @@ const homeLocationLabel = document.getElementById("homeLocationLabel");
 const homeTimeLabel = document.getElementById("homeTimeLabel");
 const homeDateLabel = document.getElementById("homeDateLabel");
 const homeWeatherLabel = document.getElementById("homeWeatherLabel");
+const accountSelect = document.getElementById("accountSelect");
+const newAccountInput = document.getElementById("newAccountInput");
+const createAccountBtn = document.getElementById("createAccountBtn");
+const activeAccountLabel = document.getElementById("activeAccountLabel");
+const homeGreetingLabel = document.getElementById("homeGreetingLabel");
 
 function populateLocationSelect() {
   cityOptions.forEach((city, idx) => {
@@ -48,6 +56,64 @@ function formatClock(date, timeZone) {
     day: "numeric"
   }).format(date);
   return { time, day };
+}
+
+function greetingFromHour(hour) {
+  if (hour < 12) return "Good morning";
+  if (hour < 18) return "Good afternoon";
+  return "Good evening";
+}
+
+function loadAccounts() {
+  try {
+    const raw = localStorage.getItem(ACCOUNT_STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+  } catch (_err) {
+    // Use defaults when local data is invalid.
+  }
+  return ["Guest"];
+}
+
+function saveAccounts(accounts) {
+  localStorage.setItem(ACCOUNT_STORAGE_KEY, JSON.stringify(accounts));
+}
+
+function updateGreeting(timeZone) {
+  const dateParts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    hour: "numeric",
+    hour12: false
+  }).formatToParts(new Date());
+  const hourPart = dateParts.find((part) => part.type === "hour");
+  const hour = Number(hourPart?.value ?? "12");
+  homeGreetingLabel.textContent = `${greetingFromHour(hour)}, ${activeAccount}!`;
+}
+
+function setActiveAccount(name) {
+  activeAccount = name;
+  localStorage.setItem(ACTIVE_ACCOUNT_STORAGE_KEY, name);
+  activeAccountLabel.textContent = `Current account: ${name}`;
+  updateGreeting(activeLocation.timeZone);
+}
+
+function renderAccountSelect(accounts) {
+  accountSelect.innerHTML = "";
+  accounts.forEach((accountName) => {
+    const option = document.createElement("option");
+    option.value = accountName;
+    option.textContent = accountName;
+    accountSelect.appendChild(option);
+  });
+}
+
+function initAccounts() {
+  const accounts = loadAccounts();
+  renderAccountSelect(accounts);
+  const savedActive = localStorage.getItem(ACTIVE_ACCOUNT_STORAGE_KEY);
+  const initialActive = savedActive && accounts.includes(savedActive) ? savedActive : accounts[0];
+  accountSelect.value = initialActive;
+  setActiveAccount(initialActive);
 }
 
 function weatherTextFromCode(code) {
@@ -106,6 +172,7 @@ function startClock(location) {
     const formatted = formatClock(now, location.timeZone);
     homeTimeLabel.textContent = `Time: ${formatted.time}`;
     homeDateLabel.textContent = `Date: ${formatted.day}`;
+    updateGreeting(location.timeZone);
   };
   tick();
   clockTimer = setInterval(tick, 1000);
@@ -155,7 +222,22 @@ randomLocationBtn.addEventListener("click", () => {
 });
 
 useMyLocationBtn.addEventListener("click", useCurrentLocation);
+accountSelect.addEventListener("change", () => setActiveAccount(accountSelect.value));
+createAccountBtn.addEventListener("click", () => {
+  const nextName = newAccountInput.value.trim();
+  if (!nextName) return;
+  const accounts = loadAccounts();
+  if (!accounts.includes(nextName)) {
+    accounts.push(nextName);
+    saveAccounts(accounts);
+    renderAccountSelect(accounts);
+  }
+  accountSelect.value = nextName;
+  setActiveAccount(nextName);
+  newAccountInput.value = "";
+});
 
 populateLocationSelect();
+initAccounts();
 locationSelect.value = "0";
 setActiveLocation(cityOptions[0]);
