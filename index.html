@@ -13,23 +13,9 @@
         <p>Converted from Code.org App Lab to HTML/CSS/JS</p>
       </header>
 
-      <nav class="menu-grid">
-        <button data-screen="home">Home</button>
-        <button data-screen="account">Account</button>
-        <button data-screen="trivia">Random Trivia</button>
-        <button data-screen="sports">Random Sports</button>
-        <button data-screen="screen">Random Screen</button>
-        <button data-screen="quote">Random Quote</button>
-        <button data-screen="number">Random Number</button>
-        <button data-screen="dice">Dice Roll</button>
-        <button data-screen="username">Random Name</button>
-        <button data-screen="coinflip">Coin Flip</button>
-        <button id="randomScreenBtn">Random</button>
-      </nav>
-
       <section class="screen active" id="homeScreen">
         <h2>Home</h2>
-        <p>If a section looks empty, press the action button in that section.</p>
+        <p>Select an app from the grid below.</p>
         <section class="home-info-card">
           <h3>Greeting</h3>
           <p id="activeAccountLabel">Current account: Guest</p>
@@ -47,10 +33,23 @@
           <p id="homeDateLabel">Date: --</p>
           <p id="homeWeatherLabel">Weather: --</p>
         </section>
+        <nav class="menu-grid home-grid">
+          <button data-screen="account">Account</button>
+          <button data-screen="trivia">Random Trivia</button>
+          <button data-screen="sports">Random Sports</button>
+          <button data-screen="screen">Random Screen</button>
+          <button data-screen="quote">Random Quote</button>
+          <button data-screen="number">Random Number</button>
+          <button data-screen="dice">Dice Roll</button>
+          <button data-screen="username">Random Name</button>
+          <button data-screen="coinflip">Coin Flip</button>
+          <button id="randomScreenBtn">Random</button>
+        </nav>
       </section>
 
       <section class="screen" id="accountScreen">
         <h2>Account</h2>
+        <button data-screen="home">Home</button>
         <p>Log in with your name or choose a random name.</p>
         <section class="home-info-card">
           <div class="controls">
@@ -68,6 +67,7 @@
 
       <section class="screen" id="triviaScreen">
         <h2>Random Trivia</h2>
+        <button data-screen="home">Home</button>
         <img id="triviaImage" alt="Trivia hint" />
         <p id="triviaCategory"></p>
         <div class="btn-row">
@@ -82,6 +82,7 @@
 
       <section class="screen" id="sportsScreen">
         <h2>Random Sport</h2>
+        <button data-screen="home">Home</button>
         <img id="sportImage" alt="Sport image" />
         <p id="sportName"></p>
         <p id="sportFact"></p>
@@ -91,6 +92,7 @@
 
       <section class="screen" id="screenScreen">
         <h2>Random Screen</h2>
+        <button data-screen="home">Home</button>
         <label class="check">
           <input type="checkbox" id="iconsToggle" checked />
           Show floating icons
@@ -101,6 +103,7 @@
 
       <section class="screen" id="quoteScreen">
         <h2>Random Quote</h2>
+        <button data-screen="home">Home</button>
         <div class="controls">
           <select id="quoteType">
             <option value="Motivational">Motivational</option>
@@ -115,6 +118,7 @@
 
       <section class="screen" id="numberScreen">
         <h2>Random Number</h2>
+        <button data-screen="home">Home</button>
         <div class="controls">
           <input id="lowInput" type="number" value="1" />
           <input id="highInput" type="number" value="100" />
@@ -125,6 +129,7 @@
 
       <section class="screen" id="diceScreen">
         <h2>Dice Roll</h2>
+        <button data-screen="home">Home</button>
         <div class="controls">
           <input id="diceCountInput" type="number" min="1" max="10" value="1" />
           <button id="diceBtn">Roll Dice</button>
@@ -136,6 +141,7 @@
 
       <section class="screen" id="usernameScreen">
         <h2>Random Full Name</h2>
+        <button data-screen="home">Home</button>
         <div class="controls">
           <button id="usernameBtn">Generate Full Name</button>
         </div>
@@ -144,6 +150,7 @@
 
       <section class="screen" id="coinflipScreen">
         <h2>Coin Flip</h2>
+        <button data-screen="home">Home</button>
         <div class="controls">
           <input id="coinflipCountInput" type="number" min="1" max="10" value="1" />
           <button id="coinflipBtn">Flip Coin</button>
