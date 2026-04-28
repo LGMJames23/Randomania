@@ -15,13 +15,14 @@
 
       <nav class="menu-grid">
         <button data-screen="home">Home</button>
+        <button data-screen="account">Account</button>
         <button data-screen="trivia">Random Trivia</button>
         <button data-screen="sports">Random Sports</button>
         <button data-screen="screen">Random Screen</button>
         <button data-screen="quote">Random Quote</button>
         <button data-screen="number">Random Number</button>
         <button data-screen="dice">Dice Roll</button>
-        <button data-screen="username">Username</button>
+        <button data-screen="username">Random Name</button>
         <button data-screen="coinflip">Coin Flip</button>
         <button id="randomScreenBtn">Random</button>
       </nav>
@@ -30,12 +31,7 @@
         <h2>Home</h2>
         <p>If a section looks empty, press the action button in that section.</p>
         <section class="home-info-card">
-          <h3>Accounts and Greeting</h3>
-          <div class="controls">
-            <select id="accountSelect"></select>
-            <input id="newAccountInput" placeholder="New account name" />
-            <button id="createAccountBtn">Add Account</button>
-          </div>
+          <h3>Greeting</h3>
           <p id="activeAccountLabel">Current account: Guest</p>
           <p id="homeGreetingLabel">Welcome!</p>
         </section>
@@ -50,6 +46,23 @@
           <p id="homeTimeLabel">Time: --:--:--</p>
           <p id="homeDateLabel">Date: --</p>
           <p id="homeWeatherLabel">Weather: --</p>
+        </section>
+      </section>
+
+      <section class="screen" id="accountScreen">
+        <h2>Account</h2>
+        <p>Log in with your name or choose a random name.</p>
+        <section class="home-info-card">
+          <div class="controls">
+            <input id="newAccountInput" placeholder="Type your name" />
+            <button id="createAccountBtn">Log In</button>
+            <button id="randomAccountBtn">Random Name</button>
+          </div>
+          <div class="controls">
+            <select id="accountSelect"></select>
+            <button id="switchAccountBtn">Use Selected</button>
+          </div>
+          <p id="accountStatusLabel">No account change yet.</p>
         </section>
       </section>
 
@@ -122,10 +135,9 @@
       </section>
 
       <section class="screen" id="usernameScreen">
-        <h2>Random Username</h2>
+        <h2>Random Full Name</h2>
         <div class="controls">
-          <input id="usernameSeedInput" placeholder="Optional name seed" />
-          <button id="usernameBtn">Generate Username</button>
+          <button id="usernameBtn">Generate Full Name</button>
         </div>
         <p id="usernameOutput"></p>
       </section>

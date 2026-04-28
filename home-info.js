@@ -28,6 +28,9 @@ const homeWeatherLabel = document.getElementById("homeWeatherLabel");
 const accountSelect = document.getElementById("accountSelect");
 const newAccountInput = document.getElementById("newAccountInput");
 const createAccountBtn = document.getElementById("createAccountBtn");
+const randomAccountBtn = document.getElementById("randomAccountBtn");
+const switchAccountBtn = document.getElementById("switchAccountBtn");
+const accountStatusLabel = document.getElementById("accountStatusLabel");
 const activeAccountLabel = document.getElementById("activeAccountLabel");
 const homeGreetingLabel = document.getElementById("homeGreetingLabel");
 
@@ -114,6 +117,18 @@ function initAccounts() {
   const initialActive = savedActive && accounts.includes(savedActive) ? savedActive : accounts[0];
   accountSelect.value = initialActive;
   setActiveAccount(initialActive);
+}
+
+function randomAccountName() {
+  const firstNames = [
+    "Avery", "Jordan", "Maya", "Noah", "Sofia", "Liam", "Isabella", "Ethan", "Amelia", "Kai",
+    "Harper", "Elijah", "Zoe", "Micah", "Aria"
+  ];
+  const lastNames = [
+    "Anderson", "Bennett", "Carter", "Diaz", "Edwards", "Foster", "Garcia", "Hughes",
+    "Iverson", "Johnson", "Kim", "Lopez", "Morgan", "Nguyen", "Patel"
+  ];
+  return `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}`;
 }
 
 function weatherTextFromCode(code) {
@@ -235,6 +250,25 @@ createAccountBtn.addEventListener("click", () => {
   accountSelect.value = nextName;
   setActiveAccount(nextName);
   newAccountInput.value = "";
+  accountStatusLabel.textContent = `Logged in as ${nextName}.`;
+});
+switchAccountBtn.addEventListener("click", () => {
+  const selected = accountSelect.value;
+  if (!selected) return;
+  setActiveAccount(selected);
+  accountStatusLabel.textContent = `Switched to ${selected}.`;
+});
+randomAccountBtn.addEventListener("click", () => {
+  const generated = randomAccountName();
+  const accounts = loadAccounts();
+  if (!accounts.includes(generated)) {
+    accounts.push(generated);
+    saveAccounts(accounts);
+    renderAccountSelect(accounts);
+  }
+  accountSelect.value = generated;
+  setActiveAccount(generated);
+  accountStatusLabel.textContent = `Random login: ${generated}.`;
 });
 
 populateLocationSelect();

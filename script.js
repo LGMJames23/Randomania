@@ -1,5 +1,6 @@
 const screens = {
   home: document.getElementById("homeScreen"),
+  account: document.getElementById("accountScreen"),
   trivia: document.getElementById("triviaScreen"),
   sports: document.getElementById("sportsScreen"),
   screen: document.getElementById("screenScreen"),
@@ -624,18 +625,16 @@ function renderCoinFlips(results) {
 }
 
 function generateUsername() {
-  const adjectives = [
-    "Neon", "Cosmic", "Sneaky", "Fuzzy", "Turbo", "Silent", "Crimson", "Lucky", "Pixel", "Wild"
+  const firstNames = [
+    "Avery", "Jordan", "Maya", "Noah", "Sofia", "Liam", "Isabella", "Ethan", "Amelia", "Kai",
+    "Harper", "Elijah", "Zoe", "Micah", "Aria"
   ];
-  const nouns = [
-    "Ninja", "Penguin", "Otter", "Wizard", "Dragon", "Comet", "Cactus", "Panda", "Falcon", "Glitch"
+  const lastNames = [
+    "Anderson", "Bennett", "Carter", "Diaz", "Edwards", "Foster", "Garcia", "Hughes",
+    "Iverson", "Johnson", "Kim", "Lopez", "Morgan", "Nguyen", "Patel"
   ];
-  const seedRaw = document.getElementById("usernameSeedInput").value.trim();
-  const seed = seedRaw ? seedRaw.replace(/\s+/g, "").slice(0, 10) : "";
-  const suffix = rand(10, 9999);
-  const base = `${pick(adjectives)}${pick(nouns)}`;
-  const username = seed ? `${seed}${base}${suffix}` : `${base}${suffix}`;
-  document.getElementById("usernameOutput").textContent = username;
+  const fullName = `${pick(firstNames)} ${pick(lastNames)}`;
+  document.getElementById("usernameOutput").textContent = fullName;
 }
 
 function flipCoin() {
@@ -664,7 +663,7 @@ document.querySelectorAll("[data-screen]").forEach((btn) => {
 });
 
 document.getElementById("randomScreenBtn").addEventListener("click", () => {
-  const keys = ["trivia", "sports", "screen", "quote", "number", "dice", "username", "coinflip"];
+  const keys = ["account", "trivia", "sports", "screen", "quote", "number", "dice", "username", "coinflip"];
   const key = pick(keys);
   showScreen(key);
   randomizeTitle();
