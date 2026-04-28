@@ -90,7 +90,7 @@ async function updateWeather(location) {
     if (typeof tempC === "number") {
       const tempF = (tempC * 9) / 5 + 32;
       homeWeatherLabel.textContent =
-        `Weather: ${weather}, ${tempC.toFixed(1)}°C (${tempF.toFixed(1)}°F)`;
+        `Weather: ${weather}, ${tempF.toFixed(1)}°F (${tempC.toFixed(1)}°C)`;
     } else {
       homeWeatherLabel.textContent = `Weather: ${weather}`;
     }
