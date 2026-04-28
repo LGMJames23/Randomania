@@ -663,6 +663,13 @@ document.querySelectorAll("[data-screen]").forEach((btn) => {
   });
 });
 
+document.querySelectorAll(".home-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    showScreen("home");
+    randomizeTitle();
+  });
+});
+
 document.getElementById("randomScreenBtn").addEventListener("click", () => {
   const keys = ["trivia", "sports", "screen", "quote", "number", "dice", "username", "coinflip"];
   const key = pick(keys);
