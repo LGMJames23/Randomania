@@ -28,6 +28,18 @@
       <section class="screen active" id="homeScreen">
         <h2>Home</h2>
         <p>If a section looks empty, press the action button in that section.</p>
+        <section class="home-info-card">
+          <h3>Time, Date, and Weather</h3>
+          <div class="controls">
+            <select id="locationSelect"></select>
+            <button id="randomLocationBtn">Random City</button>
+            <button id="useMyLocationBtn">Use My Location</button>
+          </div>
+          <p id="homeLocationLabel">Location: --</p>
+          <p id="homeTimeLabel">Time: --:--:--</p>
+          <p id="homeDateLabel">Date: --</p>
+          <p id="homeWeatherLabel">Weather: --</p>
+        </section>
       </section>
 
       <section class="screen" id="triviaScreen">
@@ -120,5 +132,6 @@
     </main>
 
     <script src="./script.js"></script>
+    <script src="./home-info.js"></script>
   </body>
 </html>

@@ -139,6 +139,14 @@ img {
   border-radius: 999px;
 }
 
+.home-info-card {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background: #eef6ff;
+}
+
 @media (min-width: 1280px) {
   .app-shell {
     width: min(1300px, 94vw);
