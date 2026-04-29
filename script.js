@@ -389,6 +389,21 @@ const sportsData = [
     sport: "Footgolf",
     image: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?auto=format&fit=crop&w=900&q=80",
     fact: "It combines soccer kicks with golf course holes."
+  },
+  {
+    sport: "Sumo Wrestling",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Hoshoryu_Tomokatsu_202205.jpg",
+    fact: "Hoshoryu is a top-ranked sumo wrestler known for speed and technique."
+  },
+  {
+    sport: "Teqball",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/89/Teqball_Table.jpg",
+    fact: "Teqball combines soccer skills with a curved table."
+  },
+  {
+    sport: "Roller Derby",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/24/Roller_derby_bout.jpg",
+    fact: "Roller derby is a high-speed contact sport played on skates."
   }
 ];
 
@@ -468,10 +483,29 @@ function nextTriviaQuestion() {
 function generateSport() {
   const item = pick(sportsData);
   document.getElementById("sportName").textContent = item.sport;
-  setImageWithFallback(document.getElementById("sportImage"), item.image, fallbackSportImage);
+  setImageWithFallback(
+    document.getElementById("sportImage"),
+    item.image,
+    sportLabelImage(item.sport)
+  );
   document.getElementById("sportFact").textContent = `Random fact: ${item.fact}`;
   const query = encodeURIComponent(`${item.sport} sport highlights`);
   document.getElementById("sportVideoLink").href = `https://www.youtube.com/results?search_query=${query}`;
+}
+
+function sportLabelImage(sportName) {
+  return `data:image/svg+xml;utf8,${encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'>
+      <defs>
+        <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+          <stop offset='0%' stop-color='#1d4ed8'/>
+          <stop offset='100%' stop-color='#9333ea'/>
+        </linearGradient>
+      </defs>
+      <rect width='640' height='360' fill='url(#g)'/>
+      <text x='320' y='190' text-anchor='middle' font-size='38' font-family='Arial' fill='white'>${sportName}</text>
+    </svg>`
+  )}`;
 }
 
 function setImageWithFallback(imgEl, primarySrc, fallbackSrc) {
@@ -625,16 +659,19 @@ function renderCoinFlips(results) {
 }
 
 function generateUsername() {
-  const firstNames = [
-    "Avery", "Jordan", "Maya", "Noah", "Sofia", "Liam", "Isabella", "Ethan", "Amelia", "Kai",
-    "Harper", "Elijah", "Zoe", "Micah", "Aria"
+  const firstParts = [
+    "Neo", "Pixel", "Shadow", "Turbo", "Lucky", "Nova", "Frost", "Solar", "Echo", "Blaze"
   ];
-  const lastNames = [
-    "Anderson", "Bennett", "Carter", "Diaz", "Edwards", "Foster", "Garcia", "Hughes",
-    "Iverson", "Johnson", "Kim", "Lopez", "Morgan", "Nguyen", "Patel"
+  const secondParts = [
+    "Rider", "Panda", "Ninja", "Falcon", "Wizard", "Comet", "Otter", "Drift", "Glitch", "Knight"
   ];
-  const fullName = `${pick(firstNames)} ${pick(lastNames)}`;
-  document.getElementById("usernameOutput").textContent = fullName;
+  const digitsCount = Number(document.getElementById("usernameDigitsSelect").value);
+  let digits = "";
+  for (let i = 0; i < digitsCount; i += 1) {
+    digits += String(rand(0, 9));
+  }
+  const username = `${pick(firstParts)}${pick(secondParts)}${digits}`;
+  document.getElementById("usernameOutput").textContent = username;
 }
 
 function flipCoin() {
