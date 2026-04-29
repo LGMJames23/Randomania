@@ -261,6 +261,11 @@ const sportsData = [
     fact: "Basketball was invented in 1891 with peach baskets."
   },
   {
+sport: "Javelin Throwing",
+image: "https://images.unsplash.com/photo-1706889393102-03f883b80e0f?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+fact: "Javelin Throwing is a sport that combines strength, technique, speed, agility, physics, balance, body control, and precision."
+  },
+  {
     sport: "Soccer",
     image: "https://images.unsplash.com/photo-1570498839593-e565b39455fc?auto=format&fit=crop&w=900&q=80",
     fact: "The first World Cup was held in 1930."
@@ -393,7 +398,7 @@ const sportsData = [
   {
     sport: "Sumo Wrestling",
     image: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Hoshoryu_Tomokatsu_202205.jpg",
-    fact: "Hoshoryu is a top-ranked sumo wrestler known for speed and technique."
+    fact: "NFL Players have gone Head-To-Head with Sumo Wrestlers, and often seem small and weak in comparison."
   },
   {
     sport: "Teqball",
@@ -562,16 +567,25 @@ function generateQuote() {
       "The Human Race ",
       "Human Nature ",
       "Life ",
-      "The Meaning Of Life "
+      "The Meaning Of Life ",
+      "Our Future",
+      "Our Society",
+      "The Universe",
+      "Everything"
     ];
-    const secondWordList = ["Is ", "Is Like ", "Is Destined To Be ", "Is "];
+    const secondWordList = ["Is ", "Is Like ", "Is Destined To Be ", "will be", "Is "];
     const thirdWordList = [
       "67",
       "A Simulation",
       "An Infinite Loop",
       "Mike Tyson",
       "The Fortnite Battlepass",
-      "A Box Of Chocolates"
+      "A Box Of Chocolates",
+      "History",
+      "You",
+      "42",
+      "Happiness",
+      "Emptiness",
     ];
     result = `${pick(firstWordList)}${pick(secondWordList)}${pick(thirdWordList)}, ${name}!`;
   }
@@ -673,6 +687,12 @@ function generateUsername() {
   const username = `${pick(firstParts)}${pick(secondParts)}${digits}`;
   document.getElementById("usernameOutput").textContent = username;
 }
+function generateName(){
+const firstNames = ["John", "Jane", "Jim", "Jill", "Jack", "Amauri", "Michael", "Isaac", "Isabella", "James", "Vlad", "Jonesey", "Kanye", "Tyler", "Drake", "Kendrick", "Jermaine", "Kanye", "Tyler", "Drake", "Kendrick", "Cole", "Jose", "Peter", "John", "Jane", "Jim", "Jill", "Jack", "Amauri", "Michael", "Isaac", "Isabella", "James", "Vlad", "Jonesey", "Kanye", "Tyler", "Drake", "Kendrick", "Jermaine", "Kanye", "Tyler", "Drake", "Kendrick", "Cole", "Jose", "Peter"];
+const lastNames = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", "White", "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson", "Walker", "Young", "Allen", "King", "Wright", "Scott", "Torres", "Nguyen", "Hill", "Flores", "Green", "Adams", "Nelson", "Baker", "Hall", "Rivera", "Campbell", "Mitchell", "Carter", "Roberts", "McLaughlin", "Hermann", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", "White", "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson", "Walker", "Young", "Allen", "King", "Wright", "Scott", "Torres", "Nguyen", "Hill", "Flores", "Green", "Adams", "Nelson", "Baker", "Hall", "Rivera", "Campbell", "Mitchell", "Carter", "Roberts", "McLaughlin", "Hermann", "Palmer", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", "White", "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson", "Walker", "Young", "Allen", "King", "Wright", "Scott", "Torres", "Nguyen", "Hill", "Flores", "Green", "Adams", "Nelson", "Baker", "Hall", "Rivera", "Campbell", "Mitchell", "Carter", "Roberts", "McLaughlin", "Hermann", "Palmer", "DeRooy", "Harris"];
+const name = `${pick(firstNames)} ${pick(lastNames)}`;
+document.getElementById("nameOutput").textContent = name;
+}
 
 function flipCoin() {
   let count = Number(document.getElementById("coinflipCountInput").value);
@@ -715,6 +735,7 @@ document.getElementById("quoteBtn").addEventListener("click", generateQuote);
 document.getElementById("numberBtn").addEventListener("click", generateNumber);
 document.getElementById("diceBtn").addEventListener("click", rollDice);
 document.getElementById("usernameBtn").addEventListener("click", generateUsername);
+document.getElementById("nameBtn").addEventListener("click", generateName);
 document.getElementById("coinflipBtn").addEventListener("click", flipCoin);
 
 randomizeTitle();
