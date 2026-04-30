@@ -43,7 +43,7 @@ const triviaData = [
   {
     category: "NFL TEAMS",
     question: "Which city do the Cowboys represent?",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/53/NFL_shield.svg",
+    image: "https://images.pexels.com/photos/10322267/pexels-photo-10322267.jpeg",
     options: ["Miami", "Dallas", "Seattle", "Boston"],
     answer: "Dallas"
   },
@@ -54,6 +54,13 @@ const triviaData = [
     options: ["Mets", "Red Sox", "Yankees", "Dodgers"],
     answer: "Yankees"
   },
+  {
+    category: "MLB TEAMS",
+    question: "Which team plays in Queens?",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Major_League_Baseball_logo.svg",
+    options: ["Mets", "Red Sox", "Yankees", "Dodgers"],
+    answer: "Mets"
+  }
   {
     category: "CATS",
     question: "Which breed is known for no fur?",
@@ -99,13 +106,13 @@ const triviaData = [
   {
     category: "SPORTS",
     question: "How many points is a touchdown worth before extra point?",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/53/NFL_shield.svg",
+    image: "https://images.pexels.com/photos/10322267/pexels-photo-10322267.jpeg",
     options: ["3", "6", "7", "8"],
     answer: "6"
   },
   {
     category: "RANDOM FACT",
-    question: "Which planet is known as the Red Planet?",
+    question: "Which planet has polar ice caps?",
     image: "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
     options: ["Venus", "Jupiter", "Mars", "Mercury"],
     answer: "Mars"
@@ -120,7 +127,7 @@ const triviaData = [
   {
     category: "NFL TEAMS",
     question: "Which NFL team is known as the Cheeseheads?",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/53/NFL_shield.svg",
+    image: "https://images.pexels.com/photos/10322267/pexels-photo-10322267.jpeg",
     options: ["Packers", "Raiders", "Rams", "Texans"],
     answer: "Packers"
   },
@@ -133,8 +140,8 @@ const triviaData = [
   },
   {
     category: "VIDEO GAMES",
-    question: "In Minecraft, what do you mine to craft upgrade a diamond sword?",
-    image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Minecraft_logo.svg",
+    question: "In Minecraft, what material do you need to UPGRADE a diamond sword?",
+    image: "https://images.pexels.com/photos/3977908/pexels-photo-3977908.jpeg",
     options: ["Diamond", "Gold", "Emerald", "Netherite"],
     answer: "Netherite"
   },
@@ -204,7 +211,7 @@ const triviaData = [
   {
     category: "NFL TEAMS",
     question: "Which team plays in Kansas City?",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/53/NFL_shield.svg",
+    image: "https://images.pexels.com/photos/10322267/pexels-photo-10322267.jpeg",
     options: ["Chiefs", "Chargers", "Bears", "Jets"],
     answer: "Chiefs"
   },
@@ -218,14 +225,14 @@ const triviaData = [
   {
     category: "RANDOM FACT",
     question: "What gas do plants absorb from the atmosphere?",
-    image: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Carbon_dioxide_3D_vdW.png",
+    image: "https://images.pexels.com/photos/32724558/pexels-photo-32724558.jpeg",
     options: ["Carbon dioxide", "Oxygen", "Helium", "Nitrogen"],
     answer: "Carbon dioxide"
   },
   {
     category: "IVY LEAGUE",
     question: "Which Ivy school is located in Providence?",
-    image: "https://upload.wikimedia.org/wikipedia/commons/0/02/Ivy_League_logo.svg",
+    image: "https://images.pexels.com/photos/30753919/pexels-photo-30753919.jpeg",
     options: ["Brown", "Harvard", "Yale", "Penn"],
     answer: "Brown"
   },
@@ -239,7 +246,7 @@ const triviaData = [
   {
     category: "VIDEO GAMES",
     question: "Which game features building with blocks in Creative mode?",
-    image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Minecraft_logo.svg",
+    image: "https://images.pexels.com/photos/3977908/pexels-photo-3977908.jpeg",
     options: ["Minecraft", "Valorant", "Portal", "Overwatch"],
     answer: "Minecraft"
   },
