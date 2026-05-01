@@ -1,6 +1,7 @@
 const screens = {
   home: document.getElementById("homeScreen"),
   account: document.getElementById("accountScreen"),
+  games: document.getElementById("gamesScreen"),
   trivia: document.getElementById("triviaScreen"),
   sports: document.getElementById("sportsScreen"),
   screen: document.getElementById("screenScreen"),
@@ -18,238 +19,238 @@ const triviaData = [
     image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/NBA_logo.svg",
     options: ["Lakers", "Heat", "Celtics", "Bulls"],
     answer: "Lakers"
-  }
+  },
   {
     category: "COUNTRY FLAG",
     question: "Which country has this red circle flag?",
     image: "https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg",
     options: ["Japan", "Bangladesh", "South Korea", "China"],
     answer: "Japan"
-  }
+  },
   {
     category: "SPORTS",
     question: "How many players are on a soccer team on field?",
     image: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg",
     options: ["9", "10", "11", "12"],
     answer: "11"
-  }
+  },
   {
     category: "VIDEO GAMES",
     question: "Which game franchise features Master Chief?",
     image: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Xbox_one_logo.svg",
     options: ["Halo", "Zelda", "Mario", "Fortnite"],
     answer: "Halo"
-  }
+  },
   {
     category: "NFL TEAMS",
     question: "Which city do the Cowboys represent?",
     image: "https://images.pexels.com/photos/10322267/pexels-photo-10322267.jpeg",
     options: ["Miami", "Dallas", "Seattle", "Boston"],
     answer: "Dallas"
-  }
+  },
   {
     category: "MLB TEAMS",
     question: "Which team plays in the Bronx?",
     image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Major_League_Baseball_logo.svg",
     options: ["Mets", "Red Sox", "Yankees", "Dodgers"],
     answer: "Yankees"
-  }
+  },
   {
     category: "MLB TEAMS",
     question: "Which team plays in Queens?",
     image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Major_League_Baseball_logo.svg",
     options: ["Mets", "Red Sox", "Yankees", "Dodgers"],
     answer: "Mets"
-  }
+  },
   {
     category: "CATS",
     question: "Which breed is known for no fur?",
     image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg",
     options: ["Persian", "Sphynx", "Siamese", "Maine Coon"],
     answer: "Sphynx"
-  }
+  },
   {
     category: "DOGS",
     question: "Which breed is famous for rescue mountain work?",
     image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Collage_of_Nine_Dogs.jpg",
     options: ["Pug", "St. Bernard", "Chihuahua", "Beagle"],
     answer: "St. Bernard"
-  }
+  },
   {
     category: "IVY LEAGUE",
     question: "Which Ivy school is in New Haven?",
     image: "https://upload.wikimedia.org/wikipedia/commons/0/02/Ivy_League_logo.svg",
     options: ["Yale", "Columbia", "Harvard", "Princeton"],
     answer: "Yale"
-  }
+  },
   {
     category: "COUNTRY FLAG",
     question: "Which country has a maple leaf on its flag?",
     image: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg",
     options: ["Austria", "Canada", "Switzerland", "Denmark"],
     answer: "Canada"
-  }
+  },
   {
     category: "NBA TEAMS",
     question: "Which NBA team is based in Chicago?",
     image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/NBA_logo.svg",
     options: ["Bulls", "Spurs", "Nuggets", "Suns"],
     answer: "Bulls"
-  }
+  },
   {
     category: "VIDEO GAMES",
     question: "Which game is set in the kingdom of Hyrule?",
     image: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Nintendo.svg",
     options: ["Minecraft", "Zelda", "Halo", "FIFA"],
     answer: "Zelda"
-  }
+  },
   {
     category: "SPORTS",
     question: "How many points is a touchdown worth before extra point?",
     image: "https://images.pexels.com/photos/10322267/pexels-photo-10322267.jpeg",
     options: ["3", "6", "7", "8"],
     answer: "6"
-  }
+  },
   {
     category: "RANDOM FACT",
     question: "Which planet has polar ice caps?",
     image: "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
     options: ["Venus", "Jupiter", "Mars", "Mercury"],
     answer: "Mars"
-  }
+  },
   {
     category: "COUNTRY FLAG",
     question: "Which country has a green flag with a cedar tree?",
     image: "https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Lebanon.svg",
     options: ["Lebanon", "Pakistan", "Algeria", "Jordan"],
     answer: "Lebanon"
-  }
+  },
   {
     category: "NFL TEAMS",
     question: "Which NFL team is known as the Cheeseheads?",
     image: "https://images.pexels.com/photos/10322267/pexels-photo-10322267.jpeg",
     options: ["Packers", "Raiders", "Rams", "Texans"],
     answer: "Packers"
-  }
+  },
   {
     category: "NBA TEAMS",
     question: "Which team is known as the Celtics?",
     image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/NBA_logo.svg",
     options: ["Boston", "Atlanta", "Memphis", "Utah"],
     answer: "Boston"
-  }
+  },
   {
     category: "VIDEO GAMES",
     question: "In Minecraft, what material do you need to UPGRADE a diamond sword?",
     image: "https://images.pexels.com/photos/3977908/pexels-photo-3977908.jpeg",
     options: ["Diamond", "Gold", "Emerald", "Netherite"],
     answer: "Netherite"
-  }
+  },
   {
     category: "SPORTS",
     question: "How many holes are in a full round of golf?",
     image: "https://upload.wikimedia.org/wikipedia/commons/8/87/Golf_ball_2.jpg",
     options: ["9", "12", "18", "24"],
     answer: "18"
-  }
+  },
   {
     category: "IVY LEAGUE",
     question: "Which Ivy League school is in Ithaca, New York?",
-    image: "https://unsplash.com/photos/brown-concrete-building-near-green-grass-field-during-daytime-r55kulBKAjM",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/02/Ivy_League_logo.svg",
     options: ["Cornell", "Brown", "Dartmouth", "Penn"],
     answer: "Cornell"
-  }
+  },
   {
     category: "DOGS",
     question: "Which breed is commonly used in police K9 units?",
     image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Collage_of_Nine_Dogs.jpg",
     options: ["German Shepherd", "Pomeranian", "Pug", "Shih Tzu"],
     answer: "German Shepherd"
-  }
+  },
   {
     category: "CATS",
     question: "Which cat breed is known for folded ears?",
     image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg",
     options: ["Scottish Fold", "Bengal", "Ragdoll", "Birman"],
     answer: "Scottish Fold"
-  }
+  },
   {
     category: "MLB TEAMS",
     question: "Which MLB team is associated with Fenway Park?",
     image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Major_League_Baseball_logo.svg",
     options: ["Red Sox", "Cubs", "Astros", "Giants"],
     answer: "Red Sox"
-  }
+  },
   {
     category: "VIDEO GAMES",
     question: "Which character is the mascot of Nintendo?",
     image: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Nintendo.svg",
     options: ["Mario", "Sonic", "Crash", "Pikachu"],
     answer: "Mario"
-  }
+  },
   {
     category: "RANDOM FACT",
     question: "What is the largest ocean on Earth?",
     image: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Map_of_the_Pacific_Ocean.jpg",
     options: ["Pacific", "Atlantic", "Indian", "Arctic"],
     answer: "Pacific"
-  }
+  },
   {
     category: "COUNTRY FLAG",
     question: "Which country has a flag with a red maple leaf?",
     image: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg",
     options: ["Canada", "Austria", "Poland", "Peru"],
     answer: "Canada"
-  }
+  },
   {
     category: "SPORTS",
     question: "How many players are on a baseball team on the field?",
     image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Major_League_Baseball_logo.svg",
     options: ["7", "8", "9", "10"],
     answer: "9"
-  }
+  },
   {
     category: "NFL TEAMS",
     question: "Which team plays in Kansas City?",
     image: "https://images.pexels.com/photos/10322267/pexels-photo-10322267.jpeg",
     options: ["Chiefs", "Chargers", "Bears", "Jets"],
     answer: "Chiefs"
-  }
+  },
   {
     category: "NBA TEAMS",
     question: "Which NBA team is based in Miami?",
     image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/NBA_logo.svg",
     options: ["Heat", "Magic", "Hornets", "Pistons"],
     answer: "Heat"
-  }
+  },
   {
     category: "RANDOM FACT",
     question: "What gas do plants absorb from the atmosphere?",
     image: "https://images.pexels.com/photos/32724558/pexels-photo-32724558.jpeg",
     options: ["Carbon dioxide", "Oxygen", "Helium", "Nitrogen"],
     answer: "Carbon dioxide"
-  }
+  },
   {
     category: "IVY LEAGUE",
     question: "Which Ivy school is located in Providence?",
     image: "https://images.pexels.com/photos/30753919/pexels-photo-30753919.jpeg",
     options: ["Brown", "Harvard", "Yale", "Penn"],
     answer: "Brown"
-  }
+  },
   {
     category: "MLB TEAMS",
     question: "Which team is known as the Dodgers?",
     image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Major_League_Baseball_logo.svg",
     options: ["Los Angeles", "Seattle", "Detroit", "Cleveland"],
     answer: "Los Angeles"
-  }
+  },
   {
     category: "VIDEO GAMES",
     question: "Which game features building with blocks in Creative mode?",
     image: "https://images.pexels.com/photos/3977908/pexels-photo-3977908.jpeg",
     options: ["Minecraft", "Valorant", "Portal", "Overwatch"],
     answer: "Minecraft"
-  }
+  },
   {
     category: "COUNTRY FLAG",
     question: "Which country has a flag with a red circle on white?",
@@ -424,6 +425,11 @@ const fallbackSportImage =
   "https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg";
 const fallbackTriviaImage =
   "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+const randomGameLinks = [
+  // Paste your GitHub game links below:
+  // "https://your-game-link-1",
+  // "https://your-game-link-2"
+];
 
 function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -718,6 +724,21 @@ function flipCoin() {
   renderCoinFlips(results);
 }
 
+function openRandomGame() {
+  const status = document.getElementById("randomGameStatus");
+  if (!randomGameLinks.length) {
+    status.textContent = "No game links yet. Add your links in script.js -> randomGameLinks.";
+    return;
+  }
+  const selected = pick(randomGameLinks);
+  const newTab = window.open(selected, "_blank", "noopener,noreferrer");
+  if (newTab) {
+    status.textContent = `Opened: ${selected}`;
+  } else {
+    status.textContent = "Pop-up blocked. Allow pop-ups and try again.";
+  }
+}
+
 document.querySelectorAll("[data-screen]").forEach((btn) => {
   btn.addEventListener("click", () => {
     showScreen(btn.dataset.screen);
@@ -727,7 +748,7 @@ document.querySelectorAll("[data-screen]").forEach((btn) => {
 });
 
 document.getElementById("randomScreenBtn").addEventListener("click", () => {
-  const keys = ["account", "trivia", "sports", "screen", "quote", "number", "dice", "username", "coinflip"];
+  const keys = ["account", "games", "trivia", "sports", "screen", "quote", "number", "dice", "username", "coinflip"];
   const key = pick(keys);
   showScreen(key);
   randomizeTitle();
@@ -744,6 +765,7 @@ document.getElementById("diceBtn").addEventListener("click", rollDice);
 document.getElementById("usernameBtn").addEventListener("click", generateUsername);
 document.getElementById("nameBtn").addEventListener("click", generateName);
 document.getElementById("coinflipBtn").addEventListener("click", flipCoin);
+document.getElementById("randomGameBtn").addEventListener("click", openRandomGame);
 
 randomizeTitle();
 showScreen("home");
