@@ -426,10 +426,15 @@ const fallbackSportImage =
 const fallbackTriviaImage =
   "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
 const randomGameLinks = [
-  // Paste your GitHub game links below:
-  // "https://your-game-link-1",
-  // "https://your-game-link-2"
+  "http://www.dougmcinnes.com/html-5-asteroids",
+  "https://cykod.github.io/AlienInvasion/",
+  "https://duckhuntjs.com/",
+  "https://cyberzhg.github.io/2048/",
+  "https://gdc.momentolabs.io/",
+  "https://git-hub-games.github.io/play/football-masters",
+  "https://learn-duck.firebaseapp.com/class/american-touchdown"
 ];
+let selectedGameUrl = "";
 
 function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -730,10 +735,19 @@ function openRandomGame() {
     status.textContent = "No game links yet. Add your links in script.js -> randomGameLinks.";
     return;
   }
-  const selected = pick(randomGameLinks);
-  const newTab = window.open(selected, "_blank", "noopener,noreferrer");
+  selectedGameUrl = pick(randomGameLinks);
+  status.textContent = `Selected: ${selectedGameUrl}`;
+}
+
+function openSelectedGame() {
+  const status = document.getElementById("randomGameStatus");
+  if (!selectedGameUrl) {
+    status.textContent = "Pick a random game first.";
+    return;
+  }
+  const newTab = window.open(selectedGameUrl, "_blank", "noopener,noreferrer");
   if (newTab) {
-    status.textContent = `Opened: ${selected}`;
+    status.textContent = `Opened in new tab: ${selectedGameUrl}`;
   } else {
     status.textContent = "Pop-up blocked. Allow pop-ups and try again.";
   }
@@ -766,6 +780,7 @@ document.getElementById("usernameBtn").addEventListener("click", generateUsernam
 document.getElementById("nameBtn").addEventListener("click", generateName);
 document.getElementById("coinflipBtn").addEventListener("click", flipCoin);
 document.getElementById("randomGameBtn").addEventListener("click", openRandomGame);
+document.getElementById("openGameBtn").addEventListener("click", openSelectedGame);
 
 randomizeTitle();
 showScreen("home");
