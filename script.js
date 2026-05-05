@@ -586,12 +586,12 @@ function generateQuote() {
       "Human Nature ",
       "Life ",
       "The Meaning Of Life ",
-      "Our Future",
-      "Our Society",
-      "The Universe",
-      "Everything"
+      "Our Future ",
+      "Our Society ",
+      "The Universe ",
+      "Everything "
     ];
-    const secondWordList = ["Is ", "Is Like ", "Is Destined To Be ", "will be", "Is "];
+    const secondWordList = ["Is ", "Is Like ", "Is Destined To Be ", "will be ", "Is "];
     const thirdWordList = [
       "67",
       "A Simulation",
