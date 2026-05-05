@@ -9,7 +9,10 @@ body {
   color: #1f2937;
   line-height: 1.4;
 }
-
+#creditsLabel{
+font-size 0.85rem;
+font-weight 500
+}
 .app-shell {
   width: min(1100px, 96vw);
   margin: 24px auto;
