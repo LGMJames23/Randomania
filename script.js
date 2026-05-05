@@ -2,6 +2,7 @@ const screens = {
   home: document.getElementById("homeScreen"),
   account: document.getElementById("accountScreen"),
   games: document.getElementById("gamesScreen"),
+  credits: document.getElementById("creditsScreen"),
   trivia: document.getElementById("triviaScreen"),
   sports: document.getElementById("sportsScreen"),
   screen: document.getElementById("screenScreen"),
