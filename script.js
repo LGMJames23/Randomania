@@ -433,7 +433,13 @@ const randomGameLinks = [
   "https://cyberzhg.github.io/2048/",
   "https://gdc.momentolabs.io/",
   "https://git-hub-games.github.io/play/football-masters",
-  "https://learn-duck.firebaseapp.com/class/american-touchdown"
+  "https://learn-duck.firebaseapp.com/class/american-touchdown",
+  "https://commongroundpuzzle.com/",
+  "https://mohdriyaan.github.io/snake-game/",
+  "https://dhruv35m.github.io/hole-and-mole-game/",
+  "https://landgreen.github.io/n-gon/",
+  "https://scratch.mit.edu/projects/157221/",
+  "https://scratch.mit.edu/projects/389735464/"
 ];
 let selectedGameUrl = "";
 
