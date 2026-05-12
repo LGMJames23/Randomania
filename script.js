@@ -10,8 +10,23 @@ const screens = {
   number: document.getElementById("numberScreen"),
   dice: document.getElementById("diceScreen"),
   username: document.getElementById("usernameScreen"),
-  coinflip: document.getElementById("coinflipScreen")
+  coinflip: document.getElementById("coinflipScreen"),
+  suggestions: document.getElementById("suggestionsScreen"),
+  cards: document.getElementById("cardsScreen")
 };
+hideElement(document.getElementById("aiRollOutput"));
+hideElement(document.getElementById("aiTotalOutput"));
+function hideElement(element) {
+  element.style.display = "none";
+}
+function showAiTotalOutputElement(aiTotal = 0, aiRolls = []) {
+  document.getElementById("aiTotalOutput").textContent = `Total: ${aiTotal}`;
+  document.getElementById("aiTotalOutput").style.display = "block";
+  if (aiRolls.length > 0) {
+    document.getElementById("aiRollOutput").textContent = `Rolls: ${aiRolls.join(", ")}`;
+    document.getElementById("aiRollOutput").style.display = "block";
+  }
+}
 
 const triviaData = [
   {
@@ -30,7 +45,7 @@ const triviaData = [
   },
   {
     category: "SPORTS",
-    question: "How many players are on a soccer team on field?",
+    question: "How many players are on a soccer team on the field?",
     image: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg",
     options: ["9", "10", "11", "12"],
     answer: "11"
@@ -639,6 +654,13 @@ function rollDice() {
   document.getElementById("diceOutput").textContent = `Rolls: ${rolls.join(", ")} | Total: ${total}`;
   renderDice(rolls);
 }
+function playPig() {
+  let total = 0;
+  while (total < 100) {
+    total += rand(1, 6);
+  }
+  showAiTotalOutputElement(total);
+}
 
 function dieFaceSvg(value) {
   const pipMap = {
@@ -756,7 +778,7 @@ function openSelectedGame() {
   if (newTab) {
     status.textContent = `Opened in new tab: ${selectedGameUrl}`;
   } else {
-    status.textContent = "Pop-up blocked. Allow pop-ups and try again.";
+    status.textContent = "Pop-up blocked";
   }
 }
 
@@ -788,6 +810,7 @@ document.getElementById("nameBtn").addEventListener("click", generateName);
 document.getElementById("coinflipBtn").addEventListener("click", flipCoin);
 document.getElementById("randomGameBtn").addEventListener("click", openRandomGame);
 document.getElementById("openGameBtn").addEventListener("click", openSelectedGame);
+document.getElementById("pigBtn").addEventListener("click", playPig);
 
 randomizeTitle();
 showScreen("home");

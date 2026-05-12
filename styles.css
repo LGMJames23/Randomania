@@ -10,8 +10,8 @@ body {
   line-height: 1.4;
 }
 #creditsLabel{
-font-size 0.85rem;
-font-weight 500
+font-size: 0.85rem;
+font-weight: 500;
 }
 .app-shell {
   width: min(1100px, 96vw);
@@ -107,6 +107,8 @@ img {
 
 #quoteOutput,
 #numberOutput,
+#suggestionsInput,
+#cardsOutput,
 #triviaResult,
 #sportFact,
 #diceOutput,

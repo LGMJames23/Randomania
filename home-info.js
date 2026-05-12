@@ -122,11 +122,10 @@ function initAccounts() {
 function randomAccountName() {
   const firstNames = [
     "Avery", "Jordan", "Maya", "Noah", "Sofia", "Liam", "Isabella", "Ethan", "Amelia", "Kai",
-    "Harper", "Elijah", "Zoe", "Micah", "Aria"
+    "Harper", "Elijah", "Zoe", "Micah", "Aria", "Briar", "Cade", "Daisy", "Ethan", "Finn", "Gia", "Henry", "Ivy", "Jack", "Kai", "Liam", "Mia", "Noah", "Olivia", "Paisley", "Quinn", "Riley", "Sam", "Tessa", "Uma", "Violet", "William", "Xander", "Yara", "Zane"
   ];
   const lastNames = [
-    "Anderson", "Bennett", "Carter", "Diaz", "Edwards", "Foster", "Garcia", "Hughes",
-    "Iverson", "Johnson", "Kim", "Lopez", "Morgan", "Nguyen", "Patel"
+    "Anderson", "Bennett", "Carter", "Diaz", "Edwards", "Foster", "Garcia", "Hughes", "Jackson", "King", "Lewis", "Martinez", "Nelson", "Perez", "Roberts", "Scott", "Thompson", "Walker", "White", "Williams", "Wilson", "Young", "Iverson", "Johnson", "Kim", "Lopez", "Morgan", "Nguyen", "Patel", "Quinn", "Reed", "Smith", "Taylor", "Upton", "Vargas", "Walker", "Xavier", "Young"
   ];
   return `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}`;
 }
@@ -275,3 +274,12 @@ populateLocationSelect();
 initAccounts();
 locationSelect.value = "0";
 setActiveLocation(cityOptions[0]);
+function getSuggestions() {
+  getSuggestionsBtn.addEventListener("click", () => {
+    let suggestions = [];
+    suggestions = JSON.parse(localStorage.getItem("Randomania Suggestions"));
+    suggestions.push(document.getElementById("suggestionsInput").textContent);
+    suggestions = suggestion + suggestions;
+    localStorage.setItem("Randomania Suggestions", JSON.stringify(suggestions));
+});
+}

@@ -46,6 +46,8 @@
           <button data-screen="dice">Random Dice Roll</button>
           <button data-screen="username">Random Name</button>
           <button data-screen="coinflip">Random Coin Flip</button>
+          <button data-screen="suggestions">Random Suggestions</button>
+          <button data-screen="cards">Random Cards</button>
           <button id="randomScreenBtn">Random</button>
         </nav>
       </section>
@@ -147,9 +149,11 @@
         <div class="controls">
           <input id="diceCountInput" type="number" min="1" max="10" value="1" />
           <button id="diceBtn">Roll Dice</button>
+          <button id="pigBtn">Play Pig</button>
         </div>
         <p>Max dice shown cleanly: 10</p>
         <p id="diceOutput"></p>
+        <p id="aiDiceOutput"></p>
         <div id="diceVisuals" class="dice-grid"></div>
       </section>
 
@@ -169,6 +173,18 @@
         </div>
         <p id="usernameOutput"></p>
         <p id="nameOutput"></p>
+      </section>
+
+      <section class="screen" id="suggestionsScreen">
+        <h2>Random Suggestions</h2>
+        <p id="suggestionsInput"></p>
+        <button id="suggestionsBtn">Add Suggestion</button>
+      </section>
+
+      <section class="screen" id="cardsScreen">
+        <h2>Random Cards</h2>
+        <p id="cardsOutput"></p>
+        <button id="cardsBtn">Generate Cards</button>
       </section>
 
       <section class="screen" id="coinflipScreen">
