@@ -1,3 +1,6 @@
+// Wrap the whole script in DOMContentLoaded to ensure all DOM elements exist before listeners are attached
+document.addEventListener("DOMContentLoaded", function() {
+
 const screens = {
   home: document.getElementById("homeScreen"),
   account: document.getElementById("accountScreen"),
@@ -17,10 +20,9 @@ const screens = {
 hideElement(document.getElementById("aiRollOutput"));
 hideElement(document.getElementById("aiTotalOutput"));
 function hideElement(element) {
-  element.style.display = "none";
+  if(element && element.style) element.style.display = "none";
 }
 function showAiTotalOutputElement(aiTotal = 0, aiRolls = []) {
-  // For GitHub Pages compatibility: safely check elements exist
   const aiTotalElem = document.getElementById("aiTotalOutput");
   if (aiTotalElem) {
     aiTotalElem.textContent = `Total: ${aiTotal}`;
@@ -280,7 +282,6 @@ const triviaData = [
     answer: "Japan"
   }
 ];
-
 let remainingTriviaIndices = [];
 
 const sportsData = [
@@ -490,8 +491,12 @@ function nextTriviaItem() {
 }
 
 function showScreen(key) {
-  Object.values(screens).forEach((el) => el.classList.remove("active"));
-  screens[key].classList.add("active");
+  Object.values(screens).forEach((el) => {
+    if(el && el.classList) el.classList.remove("active");
+  });
+  if(screens[key] && screens[key].classList) {
+    screens[key].classList.add("active");
+  }
 }
 
 function randomizeTitle() {
@@ -507,6 +512,7 @@ function randomizeTitle() {
     "Verdana"
   ];
   const title = document.getElementById("title");
+  if(!title) return;
   title.style.color = `rgb(${rand(15, 225)},${rand(15, 225)},${rand(15, 225)})`;
   title.style.fontFamily = pick(fonts);
   title.style.fontSize = `${rand(32, 52)}px`;
@@ -559,6 +565,7 @@ function sportLabelImage(sportName) {
 }
 
 function setImageWithFallback(imgEl, primarySrc, fallbackSrc) {
+  if(!imgEl) return;
   imgEl.onerror = () => {
     imgEl.onerror = null;
     imgEl.src = fallbackSrc;
@@ -568,6 +575,7 @@ function setImageWithFallback(imgEl, primarySrc, fallbackSrc) {
 
 function generateIcons() {
   const box = document.getElementById("iconCanvas");
+  if (!box) return;
   box.innerHTML = "";
   box.style.background = `rgb(${rand(3, 252)},${rand(3, 252)},${rand(3, 252)})`;
   if (!document.getElementById("iconsToggle").checked) return;
@@ -691,8 +699,10 @@ function playPig() {
 function endPig() {
   pigPlaying = false;
   document.getElementById("pigBtn").textContent = "Play Pig";
-  hideElement("")
+  hideElement(document.getElementById("aiRollOutput"));
+  hideElement(document.getElementById("aiTotalOutput"));
 }
+
 function dieFaceSvg(value) {
   const pipMap = {
     1: [[50, 50]],
@@ -715,6 +725,7 @@ function dieFaceSvg(value) {
 
 function renderDice(rolls) {
   const wrap = document.getElementById("diceVisuals");
+  if (!wrap) return;
   wrap.innerHTML = "";
   rolls.forEach((value) => {
     const img = document.createElement("img");
@@ -740,6 +751,7 @@ function coinFaceSvg(side) {
 
 function renderCoinFlips(results) {
   const wrap = document.getElementById("coinflipVisuals");
+  if (!wrap) return;
   wrap.innerHTML = "";
   results.forEach((side) => {
     const img = document.createElement("img");
@@ -821,29 +833,40 @@ document.querySelectorAll("[data-screen]").forEach((btn) => {
   });
 });
 
-document.getElementById("randomScreenBtn").addEventListener("click", () => {
-  const keys = ["account", "games", "trivia", "sports", "screen", "quote", "number", "dice", "username", "coinflip"];
-  const key = pick(keys);
-  showScreen(key);
-  randomizeTitle();
-  if (key === "trivia") nextTriviaQuestion();
+const randomScreenBtn = document.getElementById("randomScreenBtn");
+if(randomScreenBtn) {
+  randomScreenBtn.addEventListener("click", () => {
+    const keys = ["account", "games", "trivia", "sports", "screen", "quote", "number", "dice", "username", "coinflip"];
+    const key = pick(keys);
+    showScreen(key);
+    randomizeTitle();
+    if (key === "trivia") nextTriviaQuestion();
+  });
+}
+
+const eventBindings = [
+  ["nextTriviaBtn", "click", nextTriviaQuestion],
+  ["sportBtn", "click", generateSport],
+  ["genIconsBtn", "click", generateIcons],
+  ["iconsToggle", "change", generateIcons],
+  ["quoteBtn", "click", generateQuote],
+  ["numberBtn", "click", generateNumber],
+  ["diceBtn", "click", rollDice],
+  ["usernameBtn", "click", generateUsername],
+  ["nameBtn", "click", generateName],
+  ["coinflipBtn", "click", flipCoin],
+  ["randomGameBtn", "click", openRandomGame],
+  ["openGameBtn", "click", openSelectedGame],
+  ["pigBtn", "click", playPig]
+];
+
+eventBindings.forEach(([id, evt, fn]) => {
+  const el = document.getElementById(id);
+  if(el) el.addEventListener(evt, fn);  
 });
-
-document.getElementById("nextTriviaBtn").addEventListener("click", nextTriviaQuestion);
-document.getElementById("sportBtn").addEventListener("click", generateSport);
-document.getElementById("genIconsBtn").addEventListener("click", generateIcons);
-document.getElementById("iconsToggle").addEventListener("change", generateIcons);
-document.getElementById("quoteBtn").addEventListener("click", generateQuote);
-document.getElementById("numberBtn").addEventListener("click", generateNumber);
-document.getElementById("diceBtn").addEventListener("click", rollDice);
-document.getElementById("usernameBtn").addEventListener("click", generateUsername);
-document.getElementById("nameBtn").addEventListener("click", generateName);
-document.getElementById("coinflipBtn").addEventListener("click", flipCoin);
-document.getElementById("randomGameBtn").addEventListener("click", openRandomGame);
-document.getElementById("openGameBtn").addEventListener("click", openSelectedGame);
-document.getElementById("pigBtn").addEventListener("click", playPig);
-
 randomizeTitle();
 showScreen("home");
 generateSport();
 generateIcons();
+
+}); 
