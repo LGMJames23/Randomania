@@ -20,11 +20,16 @@ function hideElement(element) {
   element.style.display = "none";
 }
 function showAiTotalOutputElement(aiTotal = 0, aiRolls = []) {
-  document.getElementById("aiTotalOutput").textContent = `Total: ${aiTotal}`;
-  document.getElementById("aiTotalOutput").style.display = "block";
-  if (aiRolls.length > 0) {
-    document.getElementById("aiRollOutput").textContent = `Rolls: ${aiRolls.join(", ")}`;
-    document.getElementById("aiRollOutput").style.display = "block";
+  // For GitHub Pages compatibility: safely check elements exist
+  const aiTotalElem = document.getElementById("aiTotalOutput");
+  if (aiTotalElem) {
+    aiTotalElem.textContent = `Total: ${aiTotal}`;
+    aiTotalElem.style.display = "block";
+  }
+  const aiRollElem = document.getElementById("aiRollOutput");
+  if (aiRollElem && aiRolls.length > 0) {  
+    aiRollElem.textContent = `Rolls: ${aiRolls.join(", ")}`;
+    aiRollElem.style.display = "block";
   }
 }
 
@@ -654,14 +659,40 @@ function rollDice() {
   document.getElementById("diceOutput").textContent = `Rolls: ${rolls.join(", ")} | Total: ${total}`;
   renderDice(rolls);
 }
+let pigPlaying = false;
 function playPig() {
+  if (pigPlaying === true) return;
+  pigPlaying = true;
+  document.getElementById("pigBtn").textContent = "Stop Pig";
   let total = 0;
-  while (total < 100) {
-    total += rand(1, 6);
+  let rolls = [];
+  const maxRolls = 10;
+  while (total < 100 && rolls.length <= maxRolls && pigPlaying === true) {
+    let roll = rand(1, 6);
+    total += roll;
+    if (roll === 1) {
+      total = 0;
+      rolls = [];
+      showAiTotalOutputElement(0, []);
+      break;
+    }
+    rolls.push(roll);
   }
-  showAiTotalOutputElement(total);
+  if (rolls.length > 0) {
+    showAiTotalOutputElement(total, rolls); 
+  } else {
+    showAiTotalOutputElement(0, []);
+  }
+  if (pigPlaying === false) {
+    endPig();
+  }
 }
 
+function endPig() {
+  pigPlaying = false;
+  document.getElementById("pigBtn").textContent = "Play Pig";
+  hideElement("")
+}
 function dieFaceSvg(value) {
   const pipMap = {
     1: [[50, 50]],
