@@ -48,6 +48,209 @@ document.addEventListener("DOMContentLoaded", function() {
     let pigMaxTurns = null;
 
     const triviaData = [
+      // Science
+      {
+        category: "Science",
+        question: "Which bone is located in the arm?",
+        answer: "Ulna",
+        options: ["Ulna", "Scapula ", "Femur", "Tibia"],
+        image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      },
+      {
+        category: "Science",
+        question: "Which gland is known as the 'master gland'?",
+        answer: "Adrenal Gland",
+        options: ["Thyroid Gland", "Adrenal Gland", "Pituitary Gland", "Pancreas"],
+        image: "C:\Users\143994\Downloads\sunriseforever-game-console-6603120_1920.jpg"
+      },
+      {
+        category: "Science",
+        question: "Which gas is most abundant in the Earth's atmosphere?",
+        answer: "Nitrogen",
+        options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Helium"],
+        image: "C:\Users\143994\Downloads\pexels-zelch-30596291.jpg"
+      },
+
+      {
+        category: "Videogames",
+        question: "Which company created the PlayStation console?",
+        answer: "Sony",
+        options: ["Nintendo", "Microsoft", "Sega", "Sony"],
+        image: "C:\Users\143994\Downloads\sunriseforever-game-console-6603120_1920.jpg"
+      },
+      {
+        category: "Videogames",
+        question: "Which company created the Xbox console?",
+        answer: "Microsoft",
+        options: ["Nintendo", "Microsoft", "Sega", "Sony"],
+        image: "C:\Users\143994\Downloads\gloryxie-elite-handle-3845630_1920.jpg"
+      },
+      {
+        category: "Videogames",
+        question: "In which game would you find the character Master Chief?",
+        answer: "Halo",
+        options: ["Gears of War", "Halo", "Call of Duty", "Fortnite"],
+        image: "C:\Users\143994\Downloads\storme22k-master-chief-8263661_1920.jpg"
+      },
+
+      // Ivy League Colleges
+      {
+        category: "Ivy League Colleges",
+        question: "Which Ivy League university is located in New Haven, Connecticut?",
+        answer: "Yale",
+        options: ["Harvard", "Yale", "Princeton", "Cornell"],
+        image: "C:\Users\143994\Downloads\12019-yale-university-1604158_1920.jpg"
+      },
+      {
+        category: "Ivy League Colleges",
+        question: "Which Ivy League school is in Providence, Rhode Island?",
+        answer: "Brown",
+        options: ["Cornell", "Brown", "Dartmouth", "Columbia"],
+        image: "C:\Users\143994\Downloads\ronporter-oxford-379090_1920.jpg"
+      },
+      {
+        category: "Ivy League Colleges",
+        question: "Which is the only Ivy League university located in New York City?",
+        answer: "Columbia",
+        options: ["Princeton", "Cornell", "Columbia", "Harvard"],
+        image: "C:\Users\143994\Downloads\brianloebig-columbia-university-1017925_1920.jpg"
+      },
+
+      // Cats
+      {
+        category: "Cats",
+        question: "What breed of cat is known for having no tail?",
+        answer: "Manx",
+        options: ["Siamese", "Persian", "Manx", "Maine Coon"],
+        image: "C:\Users\143994\Downloads\spicetree687-cat-367222_1920.jpg"
+      },
+      {
+        category: "Cats",
+        question: "What is a group of cats called?",
+        answer: "Clowder",
+        options: ["Flock", "Clowder", "Herd", "Pack"],
+        image: "C:\Users\143994\Downloads\kieutruongphoto-cat-3699032_1920.jpg"
+      },
+      {
+        category: "Cats",
+        question: "Which wild cat is the largest in the world?",
+        answer: "Tiger",
+        options: ["Lion", "Cheetah", "Tiger", "Leopard"],
+        image: "C:\Users\143994\Downloads\nathan-dumlao-tiger-4173312_1920.jpg"
+      },
+
+      // Dogs
+      {
+        category: "Dogs",
+        question: "Which breed is commonly known as a police dog?",
+        answer: "German Shepherd",
+        options: ["Poodle", "Beagle", "German Shepherd", "Bulldog"],
+        image: "C:\Users\143994\Downloads\ezequiel-diaz-german-shepherd-dog-4597235_1920.jpg"
+      },
+      {
+        category: "Dogs",
+        question: "What is the smallest dog breed?",
+        answer: "Chihuahua",
+        options: ["Dachshund", "Beagle", "Pomeranian", "Chihuahua"],
+        image: "C:\Users\143994\Downloads\carl-heyerdahl-chihuahua-dog-3698028_1920.jpg"
+      },
+      {
+        category: "Dogs",
+        question: "Which dog breed has a blue-black tongue?",
+        answer: "Chow Chow",
+        options: ["Labrador", "Chow Chow", "Pug", "Corgi"],
+        image: "C:\Users\143994\Downloads\eberhard-grossgasteiger-chow-chow-dog-3698213_1920.jpg"
+      },
+
+      // NBA Teams
+      {
+        category: "NBA Teams",
+        question: "What city were the Lakers from?",
+        answer: "Minneapolis",
+        options: ["Minneapolis", "Chicago", "Los Angeles", "Boston"],
+        image: "C:\Users\143994\Downloads\harold-burton-los-angeles-lakers-1603966_1920.jpg"
+      },
+      {
+        category: "NBA Teams",
+        question: "Which NBA team is based in Miami?",
+        answer: "Miami Heat",
+        options: ["The Heat", "The Magic", "The Knicks", "The Celtics"],
+        image: "C:\Users\143994\Downloads\john-towner-miami-heat-1604163_1920.jpg"
+      },
+      {
+        category: "NBA Teams",
+        question: "Which team plays their home games at Madison Square Garden?",
+        answer: "The Knicks",
+        options: ["The Nets", "The Knicks", "The 76ers", "The Celtics"],
+        image: "C:\Users\143994\Downloads\dustin-humes-new-york-knicks-1604161_1920.jpg"
+      },
+
+      // MLB Teams
+      {
+        category: "MLB Teams",
+        question: "Which MLB team is known as 'The Bronx Bombers'?",
+        answer: "New York Yankees",
+        options: ["Chicago Cubs", "Boston Red Sox", "New York Yankees", "Los Angeles Dodgers"],
+        image: "C:\Users\143994\Downloads\frank-mckenna-new-york-yankees-1604164_1920.jpg"
+      },
+      {
+        category: "MLB Teams",
+        question: "Where were the Oakland Athletics from?",
+        answer: "Philadelphia",
+        options: ["San Francisco", "Philadelphia", "Oakland", "San Diego"],
+        image: "C:\Users\143994\Downloads\denis-krasilnikov-oakland-athletics-1604160_1920.jpg"
+      },
+      {
+        category: "MLB Teams",
+        question: "What were the Cleveland Guardians originally called",
+        answer: "The Blues",
+        options: ["The Pilots", "The Beaneaters", "The Blues", "The Angels"],
+        image: "C:\Users\143994\Downloads\denis-krasilnikov-cleveland-guardians-1604159_1920.jpg"
+      },
+
+      {
+        category: "NFL Teams",
+        question: "Which NFL team won the first Super Bowl?",
+        answer: "The Green Bay Packers",
+        options: ["The San Francisco 49ers", "The Pittsburgh Steelers", "The Los Angeles Chargers", "The Green Bay Packers"],
+        image: "C:\Users\143994\Downloads\denis-krasilnikov-san-francisco-49ers-1604157_1920.jpg"
+      },
+      {
+        category: "NFL Teams",
+        question: "Which Team has the most Super Bowl wins?",
+        answer: "The Pittsburgh Steelers",
+        options: ["The Green Bay Packers", "The Pittsburgh Steelers", "The New York Giants", "The Dallas Cowboys"],
+        image: "C:\Users\143994\Downloads\denis-krasilnikov-pittsburgh-steelers-1604156_1920.jpg"
+      },
+      {
+        category: "NFL Teams",
+        question: "Which NFL team hosts their games at Gillette Stadium?",
+        answer: "New England Patriots",
+        options: ["Buffalo Bills", "Philadelphia Eagles", "New England Patriots", "New York Jets"],
+        image: "C:\Users\143994\Downloads\denis-krasilnikov-new-england-patriots-1604155_1920.jpg"
+      },
+
+      {
+        category: "Plant Species",
+        question: "Which plant is known for its ability to close its leaves when touched?",
+        answer: "Mimosa pudica",
+        options: ["Venus flytrap", "Aloe vera", "Mimosa pudica", "Rose"],
+        image: "C:\Users\143994\Downloads\denis-krasilnikov-venus-flytrap-1604154_1920.jpg"
+      },
+      {
+        category: "Plant Species",
+        question: "What is the tallest species of tree in the world?",
+        answer: "Coast Redwood",
+        options: ["Baobab", "Giant Sequoia", "Coast Redwood", "Douglas Fir"],
+        image: "C:\Users\143994\Downloads\denis-krasilnikov-coast-redwood-1604153_1920.jpg"
+      },
+      {
+        category: "Plant Species",
+        question: "What flowering plant is known for its ability to grow in ponds?",
+        answer: "Water Lily",
+        options: ["Sunflower", "Lotus", "Water Lily", "Daffodil"],
+        image: "C:\Users\143994\Downloads\denis-krasilnikov-water-lily-1604152_1920.jpg"
+      }
     ];
     let remainingTriviaIndices = [];
 
@@ -110,6 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
       console.debug("[Debug] nextTriviaItem index:", nextIndex, "item:", triviaData[nextIndex]);
       return triviaData[nextIndex];
     }
+
 
     function showScreen(key) {
       Object.values(screens).forEach((el) => {
